@@ -1,5 +1,6 @@
 <?php include "./navBar.php";
     ?>
+
     <!-- Hero Section -->
     <main class="hero d-flex align-items-center">
         <div class="container">
@@ -8,7 +9,7 @@
     <div class="col-md-4 mb-4 mb-md-0">
         <div class="card registration-card text-center p-4">
             <div class="card-icon mx-auto">
-                <img src="../تسجيل الشركات.png" alt="تسجيل منشأة">
+                <img src="<?= BASE_URL ?>تسجيل الشركات.png" alt="تسجيل منشأة">
             </div>
             <h2 class="h4 mt-3">سجل كمنشأة</h2>
             <p class="text-muted">سجل منشأتك وابدأ في توظيف الكفاءات</p>
@@ -19,7 +20,7 @@
     <div class="col-md-4">
         <div class="card registration-card text-center p-4">
             <div class="card-icon mx-auto">
-                <img src="../تسجيل فرد.webp" alt="تسجيل فرد">
+                <img src="<?= BASE_URL ?>تسجيل فرد.webp" alt="تسجيل فرد">
             </div>
             <h2 class="h4 mt-3">سجل كفرد</h2>
             <p class="text-muted">سجل كباحث عن عمل واكتشف الفرص المتاحة</p>
@@ -38,22 +39,22 @@
             <h2 class="text-center mb-5">المنشآت</h2>
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4 justify-content-center align-items-center">
                 <div class="col text-center">
-                    <img src="../companies/مؤسسة1.jpg" alt="Partner 1" class="partner-logo">
+                    <img src="companies/مؤسسة1.jpg" alt="Partner 1" class="partner-logo">
                 </div>
                 <div class="col text-center">
-                    <img src="../companies/مؤسسة2.jpg" alt="Partner 2" class="partner-logo">
+                    <img src="companies/مؤسسة2.jpg" alt="Partner 2" class="partner-logo">
                 </div>
                 <div class="col text-center">
-                    <img src="../companies/مؤسسة3.jpg" alt="Partner 3" class="partner-logo">
+                    <img src="companies/مؤسسة3.jpg" alt="Partner 3" class="partner-logo">
                 </div>
                 <div class="col text-center">
-                    <img src="../companies/مؤسسة4.jpg" alt="Partner 4" class="partner-logo">
+                    <img src="companies/مؤسسة4.jpg" alt="Partner 4" class="partner-logo">
                 </div>
                 <div class="col text-center">
-                    <img src="../companies/مؤسسة5.jpg" alt="Partner 5" class="partner-logo">
+                    <img src="companies/مؤسسة5.jpg" alt="Partner 5" class="partner-logo">
                 </div>
                 <div class="col text-center">
-                    <img src="../companies/مؤسسة6.jpg" alt="Partner 6" class="partner-logo">
+                    <img src="companies/مؤسسة6.jpg" alt="Partner 6" class="partner-logo">
                 </div>
             </div>
         </div>
@@ -127,7 +128,7 @@
             <a href="./userSignup.php" class="about-button">سجل الآن</a>
         </div>
         <div class="about-image">
-            <img src="../logo.jpg" alt="البحث عن وظيفة" width="500" height="400">
+            <img src="<?= BASE_URL ?>logo.jpg" alt="البحث عن وظيفة" width="500" height="400">
         </div>
     </div>
 </section>

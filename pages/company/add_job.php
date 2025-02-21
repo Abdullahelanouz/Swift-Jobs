@@ -19,9 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_job'])) {
     $description = $_POST['description'];
     $requirements = $_POST['requirements'];
     $test_question = $_POST['test_question'];
+    $specialization = isset($_POST['specialization']) ? $_POST['specialization'] : null;
 
-    $stmt = $conn->prepare("INSERT INTO jobs (company_id, title, job_type, salary, description, requirements, test_question) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("issdsss", $company_id, $title, $job_type, $salary, $description, $requirements, $test_question);
+    $stmt = $conn->prepare("INSERT INTO jobs (company_id, title, job_type, salary, description, requirements, test_question, specialization) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("issdssss", $company_id, $title, $job_type, $salary, $description, $requirements, $test_question, $specialization);
 
     if ($stmt->execute()) {
         $success_message = "تمت إضافة الوظيفة بنجاح.";
@@ -83,9 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_job'])) {
             <div class="mb-3">
                 <label class="form-label">نوع الوظيفة:</label>
                 <select name="job_type" class="form-select" required>
-                    <option value="full-time">دوام كامل</option>
-                    <option value="part-time">دوام جزئي</option>
-                    <option value="shift">ورديات</option>
+                    <option value="Full Time">دوام كامل</option>
+                    <option value="Part Time">دوام جزئي</option>
+                    <option value="Contract">عقد</option>
+                    <option value="Internship">تدريب</option>
+                    <option value="WARDIA"> ورديه</option>
                 </select>
             </div>
 
@@ -103,6 +106,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_job'])) {
                 <label class="form-label">المتطلبات:</label>
                 <textarea name="requirements" class="form-control" required></textarea>
             </div>
+            <div class="mb-3">
+                <label class="form-label">التخصص:</label>
+                <input type="text" name="specialization" class="form-control" required>
+            </div>
+
 
             <div class="mb-3">
                 <label class="form-label">السؤال الاختباري (اختياري):</label>

@@ -5,7 +5,7 @@
         <h1 class="text-center mb-5">من نحن</h1>
         <div class="row">
             <div class="col-md-3 mb-4">
-                <img src="../logo.jpg" alt="صورة عن الشركة">
+                <img src="<?= BASE_URL ?>logo.jpg" alt="صورة عن الشركة">
             </div>
             <div class="col-md-9">
                 <h2 class="mb-3">مهمتنا</h2>

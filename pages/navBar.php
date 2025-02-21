@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'config.php'; // استدعاء `BASE_URL`
 ?>
 <!DOCTYPE html>

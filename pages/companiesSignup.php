@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['name'] = $name;
 
             // توجيه المستخدم إلى لوحة التحكم
-            header('Location: company_dashboard.php');
+            header('Location:company/company_dashboard.php');
             exit();
         } else {
             $error_message = "حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.";
@@ -60,12 +60,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <button type="submit" class="reg-submit">التالي</button>
             <div class="existing-account">
-                <a href="login_page.php">لديك حساب بالفعل؟</a>
+                <a href="login.php">لديك حساب بالفعل؟</a>
             </div>
         </form>
     </div>
     <div class="reg-image">
-        <img src="../page-form-thumb.webp" alt="Registration illustration">
+        <img src="<?= BASE_URL ?>page-form-thumb.webp" alt="Registration illustration">
     </div>
 </div>
 

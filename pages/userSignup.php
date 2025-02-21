@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require 'db_connection.php'; // الاتصال بقاعدة البيانات
 
 // معالجة التسجيل
@@ -7,16 +7,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
+    $specialization = $_POST['specialization'];
+    $location = $_POST['location'];
+    $cv_link = $_POST['cv_link'] ?? null;
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
+
 
     if ($password !== $confirm_password) {
         $error_message = "كلمتا المرور غير متطابقتين.";
     } else {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = $conn->prepare("INSERT INTO users (name, email, password, role, specialization) VALUES (?, ?, ?, 'employee', NULL)");
-        $stmt->bind_param("sss", $name, $email, $hashed_password);
+        $stmt = $conn->prepare("INSERT INTO users (name, email, password, role, specialization, location, cv_link) VALUES (?, ?, ?, 'employee', ?, ?, ?)");
+        $stmt->bind_param("ssssss", $name, $email, $hashed_password, $specialization, $location, $cv_link);
 
         if ($stmt->execute()) {
             $success_message = "تم تسجيل الحساب بنجاح. يمكنك الآن تسجيل الدخول.";
@@ -51,6 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="email" name="email" class="reg-input" placeholder="البريد الالكتروني" required>
             </div>
             <div class="input-box">
+                <input type="text" name="specialization" class="reg-input" placeholder="التخصص" required>
+            </div>
+            <div class="input-box">
+                <input type="file" name="cv" class="reg-input" placeholder="السيرة الذاتية (PDF فقط)" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="location" class="reg-input" placeholder="الموقع" required>
+            </div>
+
+            <div class="input-box">
                 <input type="password" name="password" class="reg-input" placeholder="كلمة المرور" required>
             </div>
             <div class="input-box">
@@ -58,12 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <button type="submit" class="reg-submit">التالي</button>
             <div class="existing-account">
-                <a href="login_page.php">لديك حساب بالفعل؟</a>
+                <a href="login.php">لديك حساب بالفعل؟</a>
             </div>
         </form>
     </div>
     <div class="reg-image">
-        <img src="../page-form-thumb.webp" alt="Registration illustration">
+        <img src="<?= BASE_URL ?>page-form-thumb.webp" alt="Registration illustration">
     </div>
 </div>
 

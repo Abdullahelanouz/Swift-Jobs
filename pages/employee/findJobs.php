@@ -173,7 +173,7 @@ $result = $conn->query($query);
                         <h2 class="job-title"><?= htmlspecialchars($job['title']); ?></h2>
                         <p><i class="fas fa-map-marker-alt"></i> <?= htmlspecialchars($job['location']); ?></p>
                         <p><i class="fas fa-briefcase"></i> <?= htmlspecialchars($job['category']); ?></p>
-                        <p><i class="fas fa-dollar-sign"></i> <?= number_format($job['salary'], 2); ?></p>
+                        <p><i class="fas fa-dollar-sign"></i> <?= number_format((float) $job['salary'], 2); ?></p>
                         <p><i class="fas fa-calendar-alt"></i> <?= date('Y-m-d', strtotime($job['created_at'])); ?></p>
                     </div>
 
